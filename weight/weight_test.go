@@ -70,9 +70,27 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 		},
 	})
 	//主体
-	adminLayoutBodyWeight.BodyHtml = "你好"
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children,
+		//按钮
+		&Button{
+			Title:  "测试按钮",
+			Style:  BtnDanger,
+			Size:   BtnLg,
+			Radius: true,
+		},
+		&IconButton{
+			Icon:  IconIos,
+			Style: BtnPrimary,
+			Size:  BtnXs,
+		},
+		&FluidButton{
+			Title: "测试流按钮",
+			Style: "",
+			Size:  "",
+		},
+	)
 	//Footer
-	adminLayoutFooterWeight.FooterHtml = " © layui.com - 底部固定区域"
+	adminLayoutFooterWeight.ChildrenHtml = " © layui.com - 底部固定区域"
 
 	mainHtml, err := adminLayoutWeight.Output()
 	if err != nil {

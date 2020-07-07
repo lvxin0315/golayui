@@ -90,10 +90,10 @@ const AdminLayoutSideTpl = `<div class="layui-side layui-bg-black">
 
 const AdminLayoutBodyTpl = `<div class="layui-body">
 	<!-- 内容主体区域 -->
-	{{.BodyHtml}}
+	{{.ChildrenHtml}}
 </div>`
 
 const AdminLayoutFooterTpl = `<div class="layui-footer">
 	<!-- 底部固定区域 -->
-	{{.FooterHtml}}
+	{{.ChildrenHtml}}
 </div>`

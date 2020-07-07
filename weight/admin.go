@@ -93,7 +93,6 @@ type AdminLayoutSideMenuWeight struct {
 //内容主体区域
 type AdminLayoutBodyWeight struct {
 	FullStateWeight
-	BodyHtml string
 }
 
 func (w *AdminLayoutBodyWeight) GetTpl() string {
@@ -101,13 +100,12 @@ func (w *AdminLayoutBodyWeight) GetTpl() string {
 }
 
 func (w *AdminLayoutBodyWeight) Output() (string, error) {
-	return TemplateParse(w)
+	return w.FullStateWeight.TemplateParse(w)
 }
 
 //底部固定区域
 type AdminLayoutFooterWeight struct {
 	FullStateWeight
-	FooterHtml string
 }
 
 func (w *AdminLayoutFooterWeight) GetTpl() string {
@@ -115,19 +113,5 @@ func (w *AdminLayoutFooterWeight) GetTpl() string {
 }
 
 func (w *AdminLayoutFooterWeight) Output() (string, error) {
-	commonHtml, err := TemplateParse(w)
-	if err != nil {
-		return "", err
-	}
-	//是否包含child
-	if len(w.Children) > 0 {
-		for _, child := range w.Children {
-			childHtml, err := child.Output()
-			if err != nil {
-				return "", err
-			}
-			commonHtml += childHtml
-		}
-	}
-	return commonHtml, nil
+	return w.FullStateWeight.TemplateParse(w)
 }

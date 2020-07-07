@@ -19,7 +19,28 @@ type LessStateWeight struct {
 }
 
 type FullStateWeight struct {
-	Children []Weight
+	Children     []Weight
+	ChildrenHtml string
+}
+
+func (w *FullStateWeight) TemplateParse(fullStateWeight Weight) (string, error) {
+	childrenHtml := ""
+	//是否包含child
+	if len(w.Children) > 0 {
+		for _, child := range w.Children {
+			childHtml, err := child.Output()
+			if err != nil {
+				return "", err
+			}
+			childrenHtml += childHtml
+		}
+	}
+	w.ChildrenHtml = childrenHtml
+	commonHtml, err := TemplateParse(fullStateWeight)
+	if err != nil {
+		return "", err
+	}
+	return commonHtml, nil
 }
 
 func TemplateParse(w Weight) (string, error) {
