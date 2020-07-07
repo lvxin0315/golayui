@@ -15,9 +15,6 @@ type Weight interface {
 	GetTpl() string
 }
 
-type LessStateWeight struct {
-}
-
 type FullStateWeight struct {
 	Children     []Weight
 	ChildrenHtml string

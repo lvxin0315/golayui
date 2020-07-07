@@ -18,49 +18,75 @@ const (
 	BtnXs = `layui-btn-xs`
 )
 
-type Button struct {
+type ButtonWeight struct {
 	Title  string
 	Style  string
 	Size   string
 	Radius bool
 }
 
-func (b *Button) Output() (string, error) {
+func (b *ButtonWeight) Output() (string, error) {
 	return TemplateParse(b)
 }
 
-func (b *Button) GetTpl() string {
+func (b *ButtonWeight) GetTpl() string {
 	return tpl.ButtonTpl
 }
 
 //流体按钮
-type FluidButton struct {
+type FluidButtonWeight struct {
 	Title  string
 	Style  string
 	Size   string
 	Radius bool
 }
 
-func (b *FluidButton) Output() (string, error) {
+func (b *FluidButtonWeight) Output() (string, error) {
 	return TemplateParse(b)
 }
 
-func (b *FluidButton) GetTpl() string {
+func (b *FluidButtonWeight) GetTpl() string {
 	return tpl.FluidButtonTpl
 }
 
 //流体按钮
-type IconButton struct {
+type IconButtonWeight struct {
 	Icon   string
 	Style  string
 	Size   string
 	Radius bool
 }
 
-func (b *IconButton) Output() (string, error) {
+func (b *IconButtonWeight) Output() (string, error) {
 	return TemplateParse(b)
 }
 
-func (b *IconButton) GetTpl() string {
+func (b *IconButtonWeight) GetTpl() string {
 	return tpl.IconButtonTpl
+}
+
+//按钮容器
+type BtnContainerWeight struct {
+	FullStateWeight
+}
+
+func (w *BtnContainerWeight) GetTpl() string {
+	return tpl.BtnContainerTpl
+}
+
+func (w *BtnContainerWeight) Output() (string, error) {
+	return w.FullStateWeight.TemplateParse(w)
+}
+
+//按钮组
+type BtnGroupWeight struct {
+	FullStateWeight
+}
+
+func (w *BtnGroupWeight) GetTpl() string {
+	return tpl.BtnGroupTpl
+}
+
+func (w *BtnGroupWeight) Output() (string, error) {
+	return w.FullStateWeight.TemplateParse(w)
 }

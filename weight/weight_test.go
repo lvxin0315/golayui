@@ -1,7 +1,7 @@
 package weight
 
 import (
-	"fmt"
+	"io/ioutil"
 	"testing"
 )
 
@@ -72,23 +72,43 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 	//主体
 	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children,
 		//按钮
-		&Button{
+		&ButtonWeight{
 			Title:  "测试按钮",
 			Style:  BtnDanger,
 			Size:   BtnLg,
 			Radius: true,
 		},
-		&IconButton{
+		&IconButtonWeight{
 			Icon:  IconIos,
 			Style: BtnPrimary,
 			Size:  BtnXs,
 		},
-		&FluidButton{
+		&FluidButtonWeight{
 			Title: "测试流按钮",
 			Style: "",
 			Size:  "",
 		},
 	)
+	//添加按钮组
+	btnGroup := new(BtnGroupWeight)
+	btnGroup.Children = append(btnGroup.Children, &ButtonWeight{
+		Title: "测试1",
+	}, &ButtonWeight{
+		Title: "测试2",
+	}, &ButtonWeight{
+		Title: "测试3",
+	})
+	//添加按钮容器
+	btnContainer := new(BtnContainerWeight)
+	btnContainer.Children = append(btnContainer.Children, &ButtonWeight{
+		Title: "测试4",
+	}, &ButtonWeight{
+		Title: "测试5",
+	}, &ButtonWeight{
+		Title: "测试6",
+	})
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, btnGroup, btnContainer)
+
 	//Footer
 	adminLayoutFooterWeight.ChildrenHtml = " © layui.com - 底部固定区域"
 
@@ -96,5 +116,5 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	fmt.Println(mainHtml)
+	ioutil.WriteFile("/Users/lvxin/go/src/github.com/lvxin0315/golayui/tmp/m.html", []byte(mainHtml), 0777)
 }

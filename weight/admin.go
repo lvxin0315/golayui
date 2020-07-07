@@ -43,7 +43,6 @@ func (w *AdminLayoutWeight) Output() (string, error) {
 
 //顶部导航
 type AdminLayoutHeaderWeight struct {
-	LessStateWeight
 	Title     string
 	LeftMenu  []*AdminLayoutHeaderMenuWeight
 	RightMenu []*AdminLayoutHeaderMenuWeight
@@ -69,7 +68,6 @@ type AdminLayoutHeaderMenuWeight struct {
 
 //左侧导航区域
 type AdminLayoutSideWeight struct {
-	LessStateWeight
 	Menu []*AdminLayoutSideMenuWeight
 }
 
