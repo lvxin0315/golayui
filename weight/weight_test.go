@@ -109,6 +109,63 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 	})
 	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, btnGroup, btnContainer)
 
+	//添加表单
+	form := new(FormWeight)
+	//基础的input
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, form)
+	form.Children = append(form.Children, &FormItemWeight{
+		Label: "单行输入框",
+		Item: &InputTextWeight{
+			Attr: Attr{
+				Name: "danhangName",
+				Id:   "danhangId",
+			},
+			Placeholder: "请输入标题",
+		},
+	}, &FormItemWeight{
+		Label: "单行密码框",
+		Item: &InputPasswordWeight{
+			Attr: Attr{
+				Name: "pn1",
+				Id:   "pi1",
+			},
+			Placeholder: "请输入密码",
+		},
+	}, &FormItemWeight{
+		Label: "单行日期",
+		Item: &InputTextWeight{
+			Attr: Attr{
+				Name: "rn1",
+				Id:   "ri1",
+			},
+			Placeholder: "yyyy-MM-dd",
+			IsDate:      true,
+		},
+	}, &FormInlineItemWeight{
+		InlineFormItemWeightList: []*FormItemWeight{
+			{
+				Label: "验证手机",
+				Item: &InputTextWeight{
+					Attr: Attr{
+						Name: "n1",
+						Id:   "i1",
+					},
+					Placeholder: "请输入手机",
+				},
+			},
+			{
+				Label: "验证邮箱",
+				Item: &InputTextWeight{
+					Attr: Attr{
+						Name: "n2",
+						Id:   "i2",
+					},
+					Placeholder: "请输入邮箱",
+				},
+			},
+		},
+	})
+
 	//Footer
 	adminLayoutFooterWeight.ChildrenHtml = " © layui.com - 底部固定区域"
 

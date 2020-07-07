@@ -52,3 +52,8 @@ func TemplateParse(w Weight) (string, error) {
 	}
 	return strBuilder.String(), nil
 }
+
+type Attr struct {
+	Name string
+	Id   string
+}
