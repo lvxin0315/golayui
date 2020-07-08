@@ -9,6 +9,7 @@ const (
 type CheckboxOptionWeight struct {
 	Title string
 	Name  string
+	IsOld bool
 }
 
 type CheckboxWeight struct {

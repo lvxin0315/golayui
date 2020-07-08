@@ -235,6 +235,78 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 		},
 	})
 
+	//checkbox
+	form.Children = append(form.Children, &FormItemWeight{
+		Label: "单行选择(旧)",
+		Item: &CheckboxWeight{
+			OptionList: []*CheckboxOptionWeight{
+				{
+					Title: "o1",
+					Name:  "o1",
+					IsOld: true,
+				},
+				{
+					Title: "o2",
+					Name:  "o2",
+					IsOld: true,
+				},
+				{
+					Title: "o3",
+					Name:  "o3",
+					IsOld: true,
+				},
+				{
+					Title: "o4",
+					Name:  "o4",
+					IsOld: true,
+				},
+				{
+					Title: "o5",
+					Name:  "o5",
+					IsOld: true,
+				},
+				{
+					Title: "o6",
+					Name:  "o6",
+					IsOld: true,
+				},
+			},
+		},
+	})
+
+	//radio
+	form.Children = append(form.Children, &FormItemWeight{
+		Label: "单选框",
+		Item: &RadioWeight{
+			OptionList: []*RadioOptionWeight{
+				{
+					Title: "c1",
+					Name:  "c1",
+				},
+				{
+					Title: "c2",
+					Name:  "c2",
+				},
+				{
+					Title: "c3",
+					Name:  "c3",
+				},
+				{
+					Title: "c4",
+					Name:  "c4",
+				},
+				{
+					Title: "c5",
+					Name:  "c5",
+				},
+				{
+					Title: "c6",
+					Name:  "c6",
+				},
+			},
+		},
+	})
+
 	//Footer
 	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
 
