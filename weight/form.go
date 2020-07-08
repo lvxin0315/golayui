@@ -1,6 +1,8 @@
 package weight
 
-import "github.com/lvxin0315/golayui/weight/tpl"
+import (
+	"github.com/lvxin0315/golayui/weight/tpl"
+)
 
 //表单
 type FormWeight struct {

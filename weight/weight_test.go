@@ -165,6 +165,42 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 			},
 		},
 	})
+	//select
+	form.Children = append(form.Children, &FormItemWeight{
+		Label: "单行选择",
+		Item: &SelectWeight{
+			Attr: Attr{
+				Name: "sn1",
+				Id:   "si1",
+			},
+			OptionList: []*SelectOptionWeight{
+				{
+					Title: "t1",
+					Value: "v1",
+				},
+				{
+					Title: "t2",
+					Value: "v2",
+				},
+				{
+					Title: "t3",
+					Value: "v3",
+				},
+				{
+					Title: "t4",
+					Value: "v4",
+				},
+				{
+					Title: "t5",
+					Value: "v5",
+				},
+				{
+					Title: "t6",
+					Value: "v6",
+				},
+			},
+		},
+	})
 
 	//Footer
 	adminLayoutFooterWeight.ChildrenHtml = " © layui.com - 底部固定区域"

@@ -12,7 +12,7 @@ const AdminLayoutTpl = `<!DOCTYPE html>
 <div class="layui-layout layui-layout-admin">
 {{.BodyHtml}}
 </div>
-<script src="layui/layui.js"></script>
+<script src="layui/layui.all.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){

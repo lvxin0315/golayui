@@ -9,8 +9,6 @@ const (
 
 type FormItemWeightImpl interface {
 	Weight
-	SetName(name string)
-	SetId(id string)
 	GetFormItemWeightType() string
 }
 
@@ -28,14 +26,6 @@ func (i *InputTextWeight) GetTpl() string {
 	return tpl.InputTextTpl
 }
 
-func (i *InputTextWeight) SetName(name string) {
-	i.Name = name
-}
-
-func (i *InputTextWeight) SetId(id string) {
-	i.Id = id
-}
-
 func (i *InputTextWeight) GetFormItemWeightType() string {
 	return InputText
 }
@@ -51,14 +41,6 @@ func (i *InputPasswordWeight) Output() (string, error) {
 
 func (i *InputPasswordWeight) GetTpl() string {
 	return tpl.InputPasswordTpl
-}
-
-func (i *InputPasswordWeight) SetName(name string) {
-	i.Name = name
-}
-
-func (i *InputPasswordWeight) SetId(id string) {
-	i.Id = id
 }
 
 func (i *InputPasswordWeight) GetFormItemWeightType() string {
