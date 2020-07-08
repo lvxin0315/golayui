@@ -202,8 +202,41 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 		},
 	})
 
+	//checkbox
+	form.Children = append(form.Children, &FormItemWeight{
+		Label: "单行选择",
+		Item: &CheckboxWeight{
+			OptionList: []*CheckboxOptionWeight{
+				{
+					Title: "c1",
+					Name:  "c1",
+				},
+				{
+					Title: "c2",
+					Name:  "c2",
+				},
+				{
+					Title: "c3",
+					Name:  "c3",
+				},
+				{
+					Title: "c4",
+					Name:  "c4",
+				},
+				{
+					Title: "c5",
+					Name:  "c5",
+				},
+				{
+					Title: "c6",
+					Name:  "c6",
+				},
+			},
+		},
+	})
+
 	//Footer
-	adminLayoutFooterWeight.ChildrenHtml = " © layui.com - 底部固定区域"
+	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
 
 	mainHtml, err := adminLayoutWeight.Output()
 	if err != nil {
