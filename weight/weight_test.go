@@ -347,6 +347,44 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 	tab2Weight.AllowClose = true
 	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, tabWeight, tab1Weight, tab2Weight)
 
+	//table
+	tableWeight := new(TableWeight)
+	tableWeight.Size = TableSizeSm
+	tableWeight.Style = TableStyleLine
+	tableWeight.Colgroup = append(tableWeight.Colgroup, "", "100", "100", "200")
+	tableWeight.Thead = &TableTrWeight{TdList: []*TableTdWeight{
+		{Content: "表头1"},
+		{Content: "表头2"},
+		{Content: "表头3"},
+		{Content: "表头4"},
+	}}
+	tableWeight.Tbody = append(tableWeight.Tbody, &TableTrWeight{TdList: []*TableTdWeight{
+		{Content: "1内容1"},
+		{Content: "1内容2"},
+		{Content: "1内容3"},
+		{Content: "1内容4"},
+	}}, &TableTrWeight{TdList: []*TableTdWeight{
+		{Content: "2内容1"},
+		{Content: "2内容2"},
+		{Content: "2内容3"},
+		{Content: "2内容4"},
+	}}, &TableTrWeight{TdList: []*TableTdWeight{
+		{Content: "3内容1"},
+		{Content: "3内容2"},
+		{Content: "3内容3"},
+		{Content: "3内容4"},
+	}}, &TableTrWeight{TdList: []*TableTdWeight{
+		{Content: "4内容1"},
+		{Content: "4内容2"},
+		{Content: "4内容3"},
+		{Content: "4内容4"},
+	}}, &TableTrWeight{TdList: []*TableTdWeight{
+		{Content: "5内容1"},
+		{Content: "5内容2"},
+		{Content: "5内容3"},
+		{Content: "5内容4"},
+	}})
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, tableWeight)
 	//Footer
 	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
 
