@@ -319,6 +319,34 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 		},
 	})
 
+	//tab
+	tabItem1 := new(TabItemWeight)
+	tabItem2 := new(TabItemWeight)
+	tabItem3 := new(TabItemWeight)
+	tabItem1.Title = "T1"
+	tabItem2.Title = "T2"
+	tabItem3.Title = "T3"
+	tabItem1.Children = append(tabItem1.Children, &TextWeight{
+		Text: "tab1-1 content",
+	}, &TextWeight{
+		Text: "tab1-2 content",
+	})
+	tabItem2.Children = append(tabItem2.Children, btnGroup)
+	tabItem3.Children = append(tabItem3.Children, btnContainer)
+	//普通tab
+	tabWeight := new(TabWeight)
+	tabWeight.ItemList = append(tabWeight.ItemList, tabItem1, tabItem2, tabItem3)
+	//带样式tab
+	tab1Weight := new(TabWeight)
+	tab1Weight.ItemList = append(tab1Weight.ItemList, tabItem1, tabItem2, tabItem3)
+	tab1Weight.Style = TabCard
+	//可以关闭tab
+	tab2Weight := new(TabWeight)
+	tab2Weight.ItemList = append(tab2Weight.ItemList, tabItem1, tabItem2, tabItem3)
+	tab2Weight.Style = TabBrief
+	tab2Weight.AllowClose = true
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, tabWeight, tab1Weight, tab2Weight)
+
 	//Footer
 	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
 
