@@ -385,9 +385,20 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 		{Content: "5内容4"},
 	}})
 	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, tableWeight)
+	//引用区块
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, &BlockquoteWeight{
+		Content: "引用区域的文字",
+	})
+	//横线
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, &HrWeight{Style: HrStyleGreen})
+	//字段集区块
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, &FieldsetWeight{
+		Title:   "引用区域的文字",
+		Content: "内容区域。",
+	})
+
 	//Footer
 	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
-
 	mainHtml, err := adminLayoutWeight.Output()
 	if err != nil {
 		t.Error(err)
