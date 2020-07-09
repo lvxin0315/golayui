@@ -307,6 +307,18 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 		},
 	})
 
+	//textarea
+	form.Children = append(form.Children, &FormItemWeight{
+		Label: "文本域",
+		Item: &TextareaWeight{
+			Attr: Attr{
+				Name: "tan1",
+				Id:   "tai1",
+			},
+			Placeholder: "tap1",
+		},
+	})
+
 	//Footer
 	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
 
