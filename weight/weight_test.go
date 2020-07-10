@@ -525,6 +525,44 @@ func TestAdminLayoutWeight1_Output(t *testing.T) {
 			}},
 		}},
 	})
+	//面板
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, &CardWeight{
+		Title: "cardTitle",
+		FullStateWeight: FullStateWeight{
+			Children: []Weight{
+				&TextWeight{Text: "content1"},
+				&TextWeight{Text: "content2"},
+				&TextWeight{Text: "content3"},
+			},
+		},
+	})
+	//折叠面板
+	adminLayoutBodyWeight.Children = append(adminLayoutBodyWeight.Children, &CollaWeight{
+		Accordion: true,
+		CollaItemList: []*CardWeight{
+			{
+				Title: "cardTitle1",
+				FullStateWeight: FullStateWeight{
+					Children: []Weight{
+						&TextWeight{Text: "content1"},
+						&TextWeight{Text: "content2"},
+						&TextWeight{Text: "content3"},
+					},
+				},
+			},
+			{
+				Title: "cardTitle2",
+				FullStateWeight: FullStateWeight{
+					Children: []Weight{
+						&TextWeight{Text: "content1"},
+						&TextWeight{Text: "content2"},
+						&TextWeight{Text: "content3"},
+					},
+				},
+			},
+		},
+	})
+
 	//Footer
 	adminLayoutFooterWeight.Children = append(adminLayoutFooterWeight.Children, &TextWeight{Text: " © layui.com - 底部固定区域"})
 	mainHtml, err := adminLayoutWeight.Output()
