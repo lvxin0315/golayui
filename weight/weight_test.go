@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+var savePath = `/Users/lvxin/go/src/github.com/lvxin0315/golayui/tmp/`
+
 func TestAdminLayoutWeight_Output(t *testing.T) {
 	adminLayoutWeight := new(AdminLayoutWeight)
 	adminLayoutHeaderWeight := new(AdminLayoutHeaderWeight)
@@ -403,7 +405,7 @@ func TestAdminLayoutWeight_Output(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	ioutil.WriteFile("/Users/lvxin/go/src/github.com/lvxin0315/golayui/tmp/m.html", []byte(mainHtml), 0777)
+	ioutil.WriteFile(savePath+"m.html", []byte(mainHtml), 0777)
 }
 
 func TestAdminLayoutWeight1_Output(t *testing.T) {
@@ -569,6 +571,18 @@ func TestAdminLayoutWeight1_Output(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	ioutil.WriteFile("/Users/lvxin/go/src/github.com/lvxin0315/golayui/tmp/m1.html", []byte(mainHtml), 0777)
+	ioutil.WriteFile(savePath+"m1.html", []byte(mainHtml), 0777)
 
+}
+
+func TestEmptyWeight_Output(t *testing.T) {
+	emptyWeight := new(EmptyWeight)
+	emptyWeight.Children = append(emptyWeight.Children, &TextWeight{Text: "content1"},
+		&TextWeight{Text: "content2"},
+		&TextWeight{Text: "content3"})
+	mainHtml, err := emptyWeight.Output()
+	if err != nil {
+		t.Error(err)
+	}
+	ioutil.WriteFile(savePath+"m2.html", []byte(mainHtml), 0777)
 }
