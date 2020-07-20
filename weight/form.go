@@ -6,6 +6,7 @@ import (
 
 //表单
 type FormWeight struct {
+	Attr
 	Action string
 	FullStateWeight
 }

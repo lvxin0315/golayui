@@ -1,6 +1,6 @@
 package tpl
 
-const FormTpl = `<form class="layui-form" action="{{.Action}}">{{.ChildrenHtml}}</form>`
+const FormTpl = `<form class="layui-form" action="{{.Action}}" lay-filter="{{.Id}}">{{.ChildrenHtml}}</form>`
 
 const FormItemTpl = `<div class="layui-form-item">
 <label class="layui-form-label">{{.Label}}</label>
