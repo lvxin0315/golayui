@@ -51,6 +51,7 @@ func (b *FluidButtonWeight) GetTpl() string {
 
 //流体按钮
 type IconButtonWeight struct {
+	Attr
 	Icon   string
 	Style  string
 	Size   string
