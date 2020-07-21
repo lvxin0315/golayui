@@ -1,6 +1,9 @@
 package weight
 
-import "github.com/lvxin0315/golayui/weight/tpl"
+import (
+	"encoding/json"
+	"github.com/lvxin0315/golayui/weight/tpl"
+)
 
 const (
 	TableStyleLine = "line" //（行边框风格）
@@ -32,4 +35,33 @@ type TableTrWeight struct {
 
 type TableTdWeight struct {
 	Content string
+}
+
+//数据table
+type DataTableWeight struct {
+	Attr
+	Style               string
+	Size                string
+	FieldList           []*DataTableItem
+	FieldListJsonString string
+}
+
+type DataTableItem struct {
+	Field string `json:"field"`
+	Title string `json:"title"`
+	Sort  string `json:"sort"`
+}
+
+func (t *DataTableWeight) Output() (string, error) {
+	//toJsonString
+	json, err := json.Marshal(t.FieldList)
+	if err != nil {
+		return "", err
+	}
+	t.FieldListJsonString = string(json)
+	return TemplateParse(t)
+}
+
+func (t *DataTableWeight) GetTpl() string {
+	return tpl.DataTableTpl
 }

@@ -616,3 +616,42 @@ func TestFormLabelWeight_Output(t *testing.T) {
 	}
 	ioutil.WriteFile(savePath+"m3.html", []byte(mainHtml), 0777)
 }
+
+func TestDataTableWeight_Output(t *testing.T) {
+	dataTableWeight := new(DataTableWeight)
+	dataTableWeight.Attr.Id = "8888"
+	dataTableWeight.FieldList = append(dataTableWeight.FieldList, &DataTableItem{
+		Field: "a",
+		Title: "A",
+		Sort:  "true",
+	}, &DataTableItem{
+		Field: "b",
+		Title: "B",
+		Sort:  "true",
+	}, &DataTableItem{
+		Field: "c",
+		Title: "C",
+		Sort:  "true",
+	}, &DataTableItem{
+		Field: "d",
+		Title: "D",
+		Sort:  "true",
+	}, &DataTableItem{
+		Field: "e",
+		Title: "E",
+		Sort:  "true",
+	}, &DataTableItem{
+		Field: "f",
+		Title: "F",
+		Sort:  "true",
+	}, &DataTableItem{
+		Field: "g",
+		Title: "G",
+		Sort:  "true",
+	})
+	mainHtml, err := dataTableWeight.Output()
+	if err != nil {
+		t.Error(err)
+	}
+	ioutil.WriteFile(savePath+"m4.html", []byte(mainHtml), 0777)
+}
