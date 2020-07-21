@@ -19,6 +19,7 @@ const (
 )
 
 type ButtonWeight struct {
+	Attr
 	Title  string
 	Style  string
 	Size   string
@@ -35,6 +36,7 @@ func (b *ButtonWeight) GetTpl() string {
 
 //流体按钮
 type FluidButtonWeight struct {
+	Attr
 	Title  string
 	Style  string
 	Size   string
