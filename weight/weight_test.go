@@ -586,3 +586,33 @@ func TestEmptyWeight_Output(t *testing.T) {
 	}
 	ioutil.WriteFile(savePath+"m2.html", []byte(mainHtml), 0777)
 }
+
+func TestFormLabelWeight_Output(t *testing.T) {
+	formLabelWeight := new(FormLabelWeight)
+	formLabelWeight.Id = "a"
+	formLabelWeight.Children = append(formLabelWeight.Children, &FormItemWeight{
+		Label: "单行输入框",
+		Item: &InputTextWeight{
+			Attr: Attr{
+				Name: "danhangName",
+				Id:   "danhangId",
+			},
+			Placeholder: "请输入标题",
+		},
+	}, &FormItemWeight{
+		Label: "单行密码框",
+		Item: &InputPasswordWeight{
+			Attr: Attr{
+				Name: "pn1",
+				Id:   "pi1",
+			},
+			Placeholder: "请输入密码",
+		},
+	})
+	formLabelWeight.Label = "我是标签"
+	mainHtml, err := formLabelWeight.Output()
+	if err != nil {
+		t.Error(err)
+	}
+	ioutil.WriteFile(savePath+"m3.html", []byte(mainHtml), 0777)
+}

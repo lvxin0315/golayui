@@ -58,3 +58,23 @@ func (f *FormInlineItemWeight) Output() (string, error) {
 func (f *FormInlineItemWeight) GetTpl() string {
 	return tpl.FromInlineItemTpl
 }
+
+//带标签区域form
+type FormLabelWeight struct {
+	Label string
+	FormWeight
+	FormHtml string
+}
+
+func (f *FormLabelWeight) Output() (string, error) {
+	formHtml, err := f.FormWeight.Output()
+	if err != nil {
+		return "", err
+	}
+	f.FormHtml = formHtml
+	return TemplateParse(f)
+}
+
+func (f *FormLabelWeight) GetTpl() string {
+	return tpl.FormLabelTpl
+}

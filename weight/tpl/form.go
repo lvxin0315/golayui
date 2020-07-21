@@ -19,3 +19,10 @@ const FromInlineItemTpl = `<div class="layui-form-item">
 </div>
 {{end}}
 </div>`
+
+const FormLabelTpl = `<div class="layui-form-item">
+<label class="layui-form-label">{{.Label}}</label>
+<div class="layui-input-block">
+{{.FormHtml}}
+</div>
+</div>`
