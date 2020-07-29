@@ -157,7 +157,11 @@ func add(itemList []*Item) (string, error) {
 			formItem = &weight.SwitchWeight{
 				Attr: attr,
 			}
-			//TODO option
+		case weight.Upload:
+			formItem = &weight.UploadWeight{
+				Attr:  attr,
+				Title: "上传",
+			}
 		default:
 			formItem = &weight.InputTextWeight{
 				Attr:        attr,

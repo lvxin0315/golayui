@@ -19,6 +19,11 @@ func (f *FormWeight) GetTpl() string {
 	return tpl.FormTpl
 }
 
+type FormItemWeightImpl interface {
+	Weight
+	GetFormItemWeightType() string
+}
+
 //表单元素,一行一个
 type FormItemWeight struct {
 	Label    string

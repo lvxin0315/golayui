@@ -7,11 +7,6 @@ const (
 	InputPassword = "password"
 )
 
-type FormItemWeightImpl interface {
-	Weight
-	GetFormItemWeightType() string
-}
-
 type InputTextWeight struct {
 	Attr
 	Placeholder string

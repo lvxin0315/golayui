@@ -33,6 +33,14 @@ func TestBuild(t *testing.T) {
 		Title: "字段2",
 		Field: "f2",
 		Type:  weight.Radio,
+	}, &Item{
+		Title: "上传",
+		Field: "u1",
+		Type:  weight.Upload,
+	}, &Item{
+		Title: "开关",
+		Field: "s1",
+		Type:  weight.Switch,
 	})
 	Build(filedItemList, savePath)
 }

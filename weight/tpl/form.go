@@ -1,6 +1,16 @@
 package tpl
 
-const FormTpl = `<form class="layui-form" action="{{.Action}}" lay-filter="{{.Id}}" id="{{.Id}}">{{.ChildrenHtml}}</form>`
+const FormTpl = `<form class="layui-form" action="{{.Action}}" lay-filter="{{.Id}}" id="{{.Id}}">{{.ChildrenHtml}}</form>
+<script>
+	layui.use(['layer', 'jquery', 'form', 'table', 'upload'], function () {
+		let layer = layui.layer;
+		let $ = layui.jquery;
+		let form = layui.form;
+		$(function () {
+			form.render();
+		});
+	});
+</script>`
 
 const FormItemTpl = `<div class="layui-form-item">
 <label class="layui-form-label">{{.Label}}</label>
