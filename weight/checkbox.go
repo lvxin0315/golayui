@@ -4,11 +4,12 @@ import "github.com/lvxin0315/golayui/weight/tpl"
 
 const (
 	CheckBox = "checkbox"
+	Switch   = "switch"
 )
 
 type CheckboxOptionWeight struct {
 	Title string
-	Name  string
+	Attr
 	IsOld bool
 }
 
@@ -26,4 +27,20 @@ func (s *CheckboxWeight) GetTpl() string {
 
 func (s *CheckboxWeight) GetFormItemWeightType() string {
 	return CheckBox
+}
+
+type SwitchWeight struct {
+	Attr
+}
+
+func (s *SwitchWeight) Output() (string, error) {
+	return TemplateParse(s)
+}
+
+func (s *SwitchWeight) GetTpl() string {
+	return tpl.SwitchTpl
+}
+
+func (s *SwitchWeight) GetFormItemWeightType() string {
+	return Switch
 }

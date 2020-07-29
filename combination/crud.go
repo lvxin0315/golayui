@@ -153,6 +153,11 @@ func add(itemList []*Item) (string, error) {
 				OptionList: nil,
 			}
 			//TODO option
+		case weight.Switch:
+			formItem = &weight.SwitchWeight{
+				Attr: attr,
+			}
+			//TODO option
 		default:
 			formItem = &weight.InputTextWeight{
 				Attr:        attr,
