@@ -18,15 +18,25 @@ const (
 	BtnXs = `layui-btn-xs`
 )
 
+//按钮类型
+const (
+	BtnButtonType = `button`
+	BtnSubmitType = `submit`
+)
+
 type ButtonWeight struct {
 	Attr
-	Title  string
-	Style  string
-	Size   string
-	Radius bool
+	Title   string
+	Style   string
+	Size    string
+	Radius  bool
+	BtnType string
 }
 
 func (b *ButtonWeight) Output() (string, error) {
+	if b.BtnType == "" {
+		b.BtnType = BtnButtonType
+	}
 	return TemplateParse(b)
 }
 
@@ -37,13 +47,17 @@ func (b *ButtonWeight) GetTpl() string {
 //流体按钮
 type FluidButtonWeight struct {
 	Attr
-	Title  string
-	Style  string
-	Size   string
-	Radius bool
+	Title   string
+	Style   string
+	Size    string
+	Radius  bool
+	BtnType string
 }
 
 func (b *FluidButtonWeight) Output() (string, error) {
+	if b.BtnType == "" {
+		b.BtnType = BtnButtonType
+	}
 	return TemplateParse(b)
 }
 
@@ -54,13 +68,17 @@ func (b *FluidButtonWeight) GetTpl() string {
 //流体按钮
 type IconButtonWeight struct {
 	Attr
-	Icon   string
-	Style  string
-	Size   string
-	Radius bool
+	Icon    string
+	Style   string
+	Size    string
+	Radius  bool
+	BtnType string
 }
 
 func (b *IconButtonWeight) Output() (string, error) {
+	if b.BtnType == "" {
+		b.BtnType = BtnButtonType
+	}
 	return TemplateParse(b)
 }
 
