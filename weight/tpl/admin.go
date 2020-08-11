@@ -6,13 +6,13 @@ const AdminLayoutTpl = `<!DOCTYPE html>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>{{.Title}}</title>
-    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
 {{.BodyHtml}}
 </div>
-<script src="layui/layui.all.js"></script>
+<script src="/layui/layui.all.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
