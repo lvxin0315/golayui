@@ -9,6 +9,7 @@ type FormWeight struct {
 	Attr
 	Action string
 	FullStateWeight
+	Method string
 }
 
 func (f *FormWeight) Output() (string, error) {
