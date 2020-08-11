@@ -7,6 +7,7 @@ const Textarea = "textarea"
 type TextareaWeight struct {
 	Attr
 	Placeholder string
+	Content     string
 }
 
 func (t *TextareaWeight) Output() (string, error) {
